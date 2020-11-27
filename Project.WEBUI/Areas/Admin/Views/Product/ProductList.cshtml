@@ -1,0 +1,57 @@
+﻿
+@model ProductVM
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Urun Eklemek icin @Html.ActionLink("Tıklayınız", "AddProduct")</h3>
+<div class="panel-body">
+    <div class="adv-table">
+        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+            <thead>
+                <tr>
+                    <th>Ürün İsmi</th>
+                    <th>Ürün Fiyatı</th>
+                    <th>Ürün Stok</th>
+                    <th>Ürün Kategorisi</th>
+                    <th>Ürün Resmi</th>
+                    <th class="hidden-phone">Durum</th>
+                    <th class="hidden-phone">Sil</th>
+                    <th class="hidden-phone">Guncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Product item in Model.Products)
+                {
+                    <tr class="gradeX">
+                        <td>@item.ProductName</td>
+                        <td>@item.UnitPrice</td>
+                        <td>
+                            @item.UnitsInStock
+                        </td>
+                        @if (item.Category == null)
+                        {
+                            <td>Kategori belirtilmemiş</td>
+                        }
+                        else
+                        {
+                            <td>@item.Category.CategoryName</td>
+                        }
+                        <td>  <img width="30" height="30" title="@item.ProductName" src="@item.ImagePath" /> </td>
+                        <td class="hidden-phone">@item.Status</td>
+
+                        <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteCategory", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                        <td class="center hidden-phone">@Html.ActionLink("Guncelle", "UpdateCategory", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="~/Areas/Admin/AdminContent/ProductDTjs.js"></script>
