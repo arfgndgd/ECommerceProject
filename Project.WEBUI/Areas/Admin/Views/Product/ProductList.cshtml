@@ -42,8 +42,8 @@
                         <td>  <img width="30" height="30" title="@item.ProductName" src="@item.ImagePath" /> </td>
                         <td class="hidden-phone">@item.Status</td>
 
-                        <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteCategory", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
-                        <td class="center hidden-phone">@Html.ActionLink("Guncelle", "UpdateCategory", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+                        <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+                        <td class="center hidden-phone">@Html.ActionLink("Guncelle", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
                     </tr>
                 }
 
