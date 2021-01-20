@@ -24,7 +24,7 @@
             </thead>
             <tbody>
                 @foreach (Product item in Model.Products)
-                {
+                {               
                     <tr class="gradeX">
                         <td>@item.ProductName</td>
                         <td>@item.UnitPrice</td>
@@ -45,10 +45,10 @@
                         <td class="center hidden-phone">@Html.ActionLink("Sil", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
                         <td class="center hidden-phone">@Html.ActionLink("Guncelle", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
                     </tr>
-                }
+                    }
 
 
-            </tbody>
+                </tbody>
         </table>
     </div>
 </div>
